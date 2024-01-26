@@ -4,11 +4,14 @@ import net.serenitybdd.annotations.Managed;
 import net.serenitybdd.annotations.Steps;
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.junit5.SerenityJUnit5Extension;
+import net.serenitybdd.screenplay.questions.Text;
+import net.serenitybdd.screenplay.targets.Target;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
 
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(SerenityJUnit5Extension.class)
@@ -21,6 +24,7 @@ public class WhenPurchasing {
     LoginActions login;
     BuyActions buyer;
     InventoryPage inventoryPage;
+    CheckoutCompletePage checkoutCompletePage;
 
     @Before
     public void userLoginsIn(){
@@ -35,6 +39,8 @@ public class WhenPurchasing {
         buyer.clicksCheckout();
         buyer.completesCheckoutInformationAs(User.STANDARD_USER);
         buyer.clicksOnFinish();
+        Serenity.reportThat("The checkout complete page should include the correct text",
+                () -> assertThat(checkoutCompletePage.getCompleteHeader()).isEqualToIgnoringCase("Thank you for your order!"));
     }
 
 
@@ -48,6 +54,18 @@ public class WhenPurchasing {
                 () -> assertThat());
 
         */
+    }
+
+    @Test
+    public void userCanAddToCartTheProduct(){
+        buyer.addsToCartTheProduct();
+        Target shoppingCart = inventoryPage.getShoppingCart();
+
+        Serenity.reportThat("The shopping cart should include a '1'",
+                () -> actor.should(
+                        seeThat("The shopping cart should include a '1'", Text.of(shoppingCart), text("1"))
+                )
+        );
     }
 
     @Test
