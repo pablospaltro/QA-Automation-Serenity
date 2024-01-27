@@ -5,13 +5,12 @@ import net.serenitybdd.core.steps.UIInteractions;
 import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(SerenityJUnit5Extension.class)
-public class WhenLogginInV3 extends UIInteractions {
+public class WhenLoggingInV3 extends UIInteractions {
 
     /*
     we still do all in one class,

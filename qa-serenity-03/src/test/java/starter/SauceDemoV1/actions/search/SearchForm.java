@@ -1,4 +1,4 @@
-package starter.SauceDemoV1.acceptancetests.actions.search;
+package starter.SauceDemoV1.actions.search;
 
 import net.serenitybdd.screenplay.targets.Target;
 

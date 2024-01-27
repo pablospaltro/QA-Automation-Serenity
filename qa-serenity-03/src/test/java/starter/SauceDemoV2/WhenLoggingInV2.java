@@ -11,7 +11,7 @@ import org.openqa.selenium.WebDriver;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(SerenityJUnit5Extension.class)
-public class WhenLogginInV2 {
+public class WhenLoggingInV2 {
 
     /*
     another approach to a login test

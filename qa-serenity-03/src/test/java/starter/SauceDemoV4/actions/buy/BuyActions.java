@@ -1,6 +1,7 @@
-package starter.SauceDemoV4;
+package starter.SauceDemoV4.actions.buy;
 
 import net.serenitybdd.core.steps.UIInteractions;
+import starter.SauceDemoV4.actions.login.User;
 
 public class BuyActions extends UIInteractions {
 
@@ -9,7 +10,7 @@ public class BuyActions extends UIInteractions {
     }
 
     // for now selecting a specific product (then it should be random):
-    public void addsToCartTheProduct(){
+    public void addsProductToCart(){
         clickOnWebElement("[data-test='add-to-cart-sauce-labs-bolt-t-shirt']");
     }
 
@@ -32,6 +33,5 @@ public class BuyActions extends UIInteractions {
 
     public void clicksOnFinish(){
         clickOnWebElement("[data-test='finish']");
-
     }
 }

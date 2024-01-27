@@ -1,4 +1,4 @@
-package starter.SauceDemoV4;
+package starter.SauceDemoV4.actions.login;
 
 public enum User {
     STANDARD_USER("standard_user", "secret_sauce", "a standard user", "123"),

@@ -1,25 +1,42 @@
-# Serenity JUnit Starter project
+qa-serenity-03
 
-Get started quickly with Serenity BDD and JUnit 5 with this simple starter project. 
+In this project there are four versions of a Serenity BDD test, interacting with https://www.saucedemo.com/ 
 
-## Get the code
+(the four versions are originally intended to compare four ways to design a login test with a growing complexity. The first three are only login test cases, but the V4 also includes a WhenPurchasing (a product) test case as well)
 
-Click on the [Use This Template button](https://github.com/serenity-bdd/serenity-junit-starter/generate) to create a new project in your own Github account. 
+- SauceDemoV1: 
+first approach to a login test using the Serenity BDD template (using a very similar test case to the example test it gives).
 
-Or simply [download a zip](https://github.com/serenity-bdd/serenity-junit-starter/archive/master.zip) file.
 
-## Running the tests under Maven
+- SauceDemoV2: 
+another approach to a login test without the template: all web driver actions and testing layer in one class (not a recommended practice).
 
-The template project comes with both Maven and Gradle build scripts. To run the tests with Maven, open a command window and run:
 
-  ./mvnw clean verify
+- SauceDemoV3:
+we still do all in one class, now extending UIInteractions for a better interaction with the web elements.
 
-## Use Gradle
 
-For GRADLE, pen a command window and run:
+- SauceDemoV4:
+    As a test class,
+    it should only do that: test.
+    it shouldn´t extend from UIInteractions / PageObject
+    since its propose is completely different
+    (Single Responsibility Principle)
 
-  ./gradlew test 
+    That's why we use separated classes
+    such as LoginActions ( interacting with the user data )
+    and InventoryPage ( interacting with the page / web element )
 
-## Viewing the reports
+        additional info:
+        Also as a good practice, we should structure the project
+        creating packages separating:
+        - pages / actions / actor / test cases
 
-Both of the commands provided above will produce a Serenity test report in the `target/site/serenity` directory. Go take a look!
+          (Which elements are going to be just Pages
+          and which ones just Actions.
+          We don't have a page with actions,
+          they're separated.)
+
+    UPDATE: since I began to create more classes, I've structured them
+    now in packages (following the original Serenity BDD template as a guide)
+

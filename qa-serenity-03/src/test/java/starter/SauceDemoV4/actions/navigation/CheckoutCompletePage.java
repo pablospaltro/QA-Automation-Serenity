@@ -1,4 +1,4 @@
-package starter.SauceDemoV4;
+package starter.SauceDemoV4.actions.navigation;
 
 import net.serenitybdd.core.pages.PageObject;
 

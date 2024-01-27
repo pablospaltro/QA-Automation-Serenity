@@ -1,9 +1,9 @@
-package starter.SauceDemoV4;
+package starter.SauceDemoV4.actions.navigation;
 
-import net.serenitybdd.core.annotations.findby.By;
+import net.serenitybdd.annotations.DefaultUrl;
 import net.serenitybdd.core.pages.PageObject;
-import net.serenitybdd.screenplay.targets.Target;
 
+@DefaultUrl("https://www.saucedemo.com/inventory")
 public class InventoryPage extends PageObject {
 
     /*
@@ -17,7 +17,7 @@ public class InventoryPage extends PageObject {
     }
     // writing '$' instead of 'find' also works
 
-    public Target getShoppingCart() {
-        return Target.the("Shopping cart").located(By.className("shoping_cart_badge"));
+    public String getAmountOfProductsAddedInShoppingCart(){
+        return find("shopping_cart_badge").getText();
     }
 }

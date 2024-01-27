@@ -1,14 +1,15 @@
-package starter.SauceDemoV4;
+package starter.SauceDemoV4.tests;
 
 import net.serenitybdd.annotations.Managed;
 import net.serenitybdd.annotations.Steps;
 import net.serenitybdd.core.Serenity;
-import net.serenitybdd.core.steps.UIInteractions;
 import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import starter.SauceDemoV4.actions.login.LoginActions;
+import starter.SauceDemoV4.actions.login.User;
+import starter.SauceDemoV4.actions.navigation.InventoryPage;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -35,6 +36,9 @@ public class WhenLoggingInV4 {
           and which ones just Actions.
           We don't have a page with actions,
           they're separated.)
+
+    UPDATE: since I began to create more classes, I've structured them
+    now in packages (in accordance to the original Serenity BDD template)
      */
 
     @Managed
