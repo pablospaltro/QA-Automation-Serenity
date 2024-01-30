@@ -7,6 +7,11 @@ import starter.SauceDemoV1.actions.navigation.SauceDemoHomePage;
 
 public class NavigateTo {
 
+    public static Performable theHomePage() {
+        return Task.where("{0} opens the SauceDemo home page",
+                Open.browserOn().the(HomePage.class));
+    }
+
     public static Performable theInventoryPage() {
         return Task.where("{0} opens the SauceDemo inventory page",
                 Open.browserOn().the(InventoryPage.class));
